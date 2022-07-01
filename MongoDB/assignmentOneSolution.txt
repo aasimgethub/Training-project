@@ -1,0 +1,321 @@
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find()
+[
+  {
+    _id: ObjectId("62a3539184630e7bbe6510e5"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuko',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("62a3548684630e7bbe6510e6"),
+    title: 'Pulp Fiction',
+
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({writer:"Quentin Tarantino"})
+[
+  {
+    _id: ObjectId("62a3548684630e7bbe6510e6"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'jhon Tarvolta', 'Uma Thurman' ]
+  },
+  {
+    _id: ObjectId("62a3554184630e7bbe6510e8"),
+    title: 'Inglorious Basterds',
+    writer: 'Quentin Tarantino',
+    year: 2009,
+    actors: [ 'Brad Pitt', 'Diane Kruger', 'Eli Roth' ]
+  }
+]
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({actors:"Brad Pitt"})
+[
+  {
+    _id: ObjectId("62a3539184630e7bbe6510e5"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuko',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("62a3554184630e7bbe6510e8"),
+    title: 'Inglorious Basterds',
+    writer: 'Quentin Tarantino',
+    year: 2009,
+    actors: [ 'Brad Pitt', 'Diane Kruger', 'Eli Roth' ]
+  }
+]
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({franchise:"The Hobbit"})
+[
+  {
+    _id: ObjectId("62a3564a84630e7bbe6510e9"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("62a356f384630e7bbe6510ea"),
+    title: 'The Hobbit:The Desolation of Smaug',
+    writer: 'J.R.R Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("62a3572984630e7bbe6510eb"),
+    title: 'The Hobbit:The Battle of the Five Armies',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  }
+]
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice>
+
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find()
+[
+  {
+    _id: ObjectId("62a3539184630e7bbe6510e5"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuko',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("62a3548684630e7bbe6510e6"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'jhon Tarvolta', 'Uma Thurman' ]
+  },
+  {
+    _id: ObjectId("62a3554184630e7bbe6510e8"),
+    title: 'Inglorious Basterds',
+    writer: 'Quentin Tarantino',
+    year: 2009,
+    actors: [ 'Brad Pitt', 'Diane Kruger', 'Eli Roth' ]
+  },
+  {
+    _id: ObjectId("62a3564a84630e7bbe6510e9"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("62a356f384630e7bbe6510ea"),
+    title: 'The Hobbit:The Desolation of Smaug',
+    writer: 'J.R.R Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("62a3572984630e7bbe6510eb"),
+    title: 'The Hobbit:The Battle of the Five Armies',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  },
+  {
+    _id: ObjectId("62a357de84630e7bbe6510ec"),
+    title: "Pee Wee Herman's Big Adventure"
+  },
+  { _id: ObjectId("62a3580f84630e7bbe6510ed"), title: 'avatar' }
+]
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({year:{$gt:1990, $lt:2000}})
+[
+  {
+    _id: ObjectId("62a3539184630e7bbe6510e5"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuko',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("62a3548684630e7bbe6510e6"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'jhon Tarvolta', 'Uma Thurman' ]
+  }
+]
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({$or:[{year:{$gt:2010}},{year:{ $lt:2000}}]})
+[
+  {
+    _id: ObjectId("62a3539184630e7bbe6510e5"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuko',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("62a3548684630e7bbe6510e6"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'jhon Tarvolta', 'Uma Thurman' ]
+  },
+  {
+    _id: ObjectId("62a3564a84630e7bbe6510e9"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("62a356f384630e7bbe6510ea"),
+    title: 'The Hobbit:The Desolation of Smaug',
+    writer: 'J.R.R Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("62a3572984630e7bbe6510eb"),
+    title: 'The Hobbit:The Battle of the Five Armies',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  }
+]
+
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.update({title:"The Hobbit: An Unexpected Journey"},{$set:{synopsis:"A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug."}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.update({title:"The Hobbit:The Desolation of Smaug"},{$set:{synopsis: "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.update({title:"Pulp Fiction"},{$set:{actors:"Samuel L. Jackson"})}
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:74)
+
+> 1 | db.movies.update({title:"Pulp Fiction"},{$set:{actors:"Samuel L. Jackson"})}
+    |                                                                           ^
+  2 |
+
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.update({title:"Pulp Fiction"},{$set:{actors:"Samuel L. Jackson"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.update({title:"Pulp Fiction"},{$set:{actors:["jhon Tarvolta", "Uma Thurman","Samuel L. Jackson"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({synopsis:{$regex:"Bilbo"}})
+[
+  {
+    _id: ObjectId("62a3564a84630e7bbe6510e9"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.'
+  },
+  {
+    _id: ObjectId("62a356f384630e7bbe6510ea"),
+    title: 'The Hobbit:The Desolation of Smaug',
+    writer: 'J.R.R Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit',
+    synopsis: 'The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.'
+  },
+  {
+    _id: ObjectId("62a3572984630e7bbe6510eb"),
+    title: 'The Hobbit:The Battle of the Five Armies',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  }
+]
+
+
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({synopsis:{$regex:"Gandalf"}})
+[
+  {
+    _id: ObjectId("62a356f384630e7bbe6510ea"),
+    title: 'The Hobbit:The Desolation of Smaug',
+    writer: 'J.R.R Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit',
+    synopsis: 'The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.'
+  }
+]
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({$and:[{synopsis:{$regex:"Bilbo"}},{synopsis:{$not:"Gandalf"}}]})
+MongoServerError: $not needs a regex or a document
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({$and:[{synopsis:{$regex:"Bilbo"}},{synopsis:{$not:/Gandalf/}}]})
+[
+  {
+    _id: ObjectId("62a3564a84630e7bbe6510e9"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.'
+  },
+  {
+    _id: ObjectId("62a3572984630e7bbe6510eb"),
+    title: 'The Hobbit:The Battle of the Five Armies',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  }
+]
+
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({$or:[{synopsis:{$regex:"dwarves"}},{synopsis:{$regex:"hobbit"}}]})
+[
+  {
+    _id: ObjectId("62a3564a84630e7bbe6510e9"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.'
+  },
+  {
+    _id: ObjectId("62a356f384630e7bbe6510ea"),
+    title: 'The Hobbit:The Desolation of Smaug',
+    writer: 'J.R.R Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit',
+    synopsis: 'The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.'
+  }
+]
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.find({$or:[{synopsis:{$regex:"gold"}},{synopsis:{$regex:"dragon"}}]})
+[
+  {
+    _id: ObjectId("62a3564a84630e7bbe6510e9"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.'
+  }
+]
+
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.remove({ _id: ObjectId("62a357de84630e7bbe6510ec")})
+{ acknowledged: true, deletedCount: 1 }
+Atlas atlas-2c03rv-shard-0 [primary] mongo_practice> db.movies.remove({ _id: ObjectId("62a3580f84630e7bbe6510ed")})
+{ acknowledged: true, deletedCount: 1 }
